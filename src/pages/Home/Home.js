@@ -11,8 +11,26 @@ export class Home extends Component {
 	}
 
 	componentDidMount(){
+		/*
 		fetch('https://jsonplaceholder.typicode.com/posts').then(r => r.json()).then(json => {
 			this.setState({lista:json})
+		})
+		*/
+
+		let corpo = {
+			title:'Post Novo',
+			body:'Conteudo do post novo',
+			userId:'1'
+		}
+
+		fetch('https://jsonplaceholder.typicode.com/posts', {
+			method:'POST',
+			body:JSON.stringify(corpo),
+			headers:{
+				"Content-type":"application/json;charset=UTF-8"
+			}
+		}).then(r => r.json()).then(json=>{
+			console.log(json)
 		})
 	}
 
